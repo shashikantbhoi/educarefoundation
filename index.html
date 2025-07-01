@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduCare NGO</title>
+    <link rel="stylesheet" href="styles.css" />
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+   <!-- Header -->
+  <header>
+    <h1>EduCare Foundation</h1>
+    <p>Empowering students through education support</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+      <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="programs.html">Programs</a>
+    <a href="donate.html">Schemes</a>
+    <a href="contact.html">Contact</a>
+
+  </nav>
+<div class="marathi-marquee-bar">
+  <marquee behavior="scroll" direction="left">
+    विद्यार्थ्यांसाठी लॅपटॉप योजनेसाठी नोंदणी सुरू आहे. अर्ज करण्यासाठी 'Schemes' बटणावर क्लिक करा.
+  ही योजना कोणत्याही शासकीय अथवा मान्यताप्राप्त संस्थेशी संबंधित नाही. ही एक खासगी उपक्रम असून, अर्जाचा ₹98 शुल्क प्रक्रिया शुल्क आहे, जो कोणत्याही परिस्थितीत परत केला जाणार नाही. अर्ज भरल्याने निवड निश्चित होत नाही. पात्रता, गुण आणि दस्तऐवजांच्या पडताळणीच्या आधारेच काही निवडक विद्यार्थ्यांची निवड केली जाईल. चुकीची किंवा बनावट माहिती दिल्यास अर्ज फेटाळला जाईल. तुमची वैयक्तिक माहिती गोपनीय ठेवली जाईल आणि केवळ योजनेसाठी वापरली जाईल.Inspired by various education support schemes, this is a private digital initiative to help students with learning tools.
+
+  </marquee>
+</div>
+
+  <!-- Login/Register Section -->
+  <div class="container">
+    <div class="auth-box">
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <input type="text" id="loginOtp" placeholder="Enter OTP" style="display:none;">
+        <button onclick="loginUser()">Login</button>
+        <div class="switch" onclick="toggleForms('register')">Don't have an account? Register</div>
+        <div class="switch" onclick="window.location.href='reset.html'">Forgot Password?</div>
+
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <input type="text" id="regName" placeholder="Full Name" required>
+        <input type="text" id="regPhone" placeholder="Mobile Number" required>
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <input type="email" id="email" placeholder="Enter your email"><br><br>
+<button onclick="sendOTP()" id="sendBtn">Send OTP</button>
+<button onclick="resendOTP()" id="resendBtn">Resend OTP</button><br><br>
+
+<input type="text" id="otpInput" placeholder="Enter OTP">
+<button onclick="verifyOTP()">Verify OTP</button><br><br>
+<p id="timer"></p>
+<br><br>
+        <button onclick="registerUser()">Register</button>
+        <div class="switch" onclick="toggleForms('login')">Already have an account? Login</div>
+      </div>
+    </div>
+  </div>
+<div class="slider-container">
+  <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+  <div class="slider" id="slider">
+    <img src="https://st2.depositphotos.com/3591429/12074/i/950/depositphotos_120749072-stock-photo-beautiful-indian-students.jpg" alt="Indian student learning">
+    <img src="https://thumbs.dreamstime.com/b/asian-government-school-kids-learning-laptop-computer-system-sailing-boat-india-january-indian-poor-old-couple-168320037.jpg" alt="Student studying with books">
+    <img src="https://www.aljazeera.com/wp-content/uploads/2024/08/An-Online-session-on-Coding-being-attended-by-students-at-Sajhe-1724823929.jpeg?resize=1920%2C1080" alt="Girl with tablet in rural area">
+    <img src="https://www.aljazeera.com/wp-content/uploads/2024/08/Surabhi-along-with-members-of-Udyami-Technologies-1724823983.jpeg" alt="Children learning outside">
+    <img src="https://idronline.org/wp-content/uploads/2021/01/Sharing-with-parents.jpg.webp" alt="demo">
+  </div>
+  <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+</div>
+  <!-- Hero Section -->
+  <div class="container hero-section">
+    <div class="hero">
+      <h1>Support a Child’s Future</h1>
+      <p>We provide laptops, books, and more to help students achieve their dreams.</p>
+    </div>
+  </div>
+
+  <!-- What We Do Section -->
+  <div class="container cards-section">
+    <div class="section">
+      <h2>What We Do</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Distribute Laptops</h3>
+          <p>Providing digital tools for online learning and skill development.</p>
+        </div>
+        <div class="card">
+          <h3>Tablets & Mobiles</h3>
+          <p>Helping students access classes and study materials easily.</p>
+        </div>
+        <div class="card">
+          <h3>Books & Stationery</h3>
+          <p>Ensuring every child has the basic educational supplies they need.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+      <a href="/terms.html" target="_blank">Terms & Conditions</a> |
+  <a href="/privacy.html" target="_blank">Privacy Policy</a>
+    <p>&copy; 2025 EduCare Foundation. All rights reserved.</p>
+  </footer>
+  <script>
+
+//email otp
+  let generatedOTP = "";
+  let isOTPVerified = false;
+  let timerInterval;
+  const OTP_EXPIRY_SECONDS = 120;
+
+  emailjs.init({ publicKey: "mqWw7b0_-3gUgkbut" }); // ✅ Your public key
+
+  function sendOTP() {
+    const email = document.getElementById("email").value.trim();
+
+    if (!email) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    isOTPVerified = false;
+
+    const templateParams = {
+      to_email: email,
+      otp: generatedOTP
+    };
+
+    emailjs.send("service_rlxxesd", "template_hhixzbv", templateParams)
+      .then(() => {
+        alert("OTP sent successfully!");
+        startTimer(OTP_EXPIRY_SECONDS);
+        document.getElementById("resendBtn").style.display = "none";
+        document.getElementById("sendBtn").disabled = true;
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Failed to send OTP. Check console.");
+      });
+  }
+
+  function resendOTP() {
+    document.getElementById("otpInput").value = "";
+    sendOTP();
+  }
+
+  function startTimer(duration) {
+    let timeLeft = duration;
+    const timerDisplay = document.getElementById("timer");
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = "OTP expired. Please resend.";
+        document.getElementById("resendBtn").style.display = "inline";
+        generatedOTP = ""; // Invalidate expired OTP
+      } else {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `OTP expires in ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        timeLeft--;
+      }
+    }, 1000);
+  }
+
+  function verifyOTP() {
+    const enteredOTP = document.getElementById("otpInput").value.trim();
+
+    if (!generatedOTP) {
+      alert("OTP expired or not sent. Please resend.");
+      return;
+    }
+
+    if (enteredOTP === generatedOTP) {
+      isOTPVerified = true;
+      clearInterval(timerInterval);
+      alert("OTP Verified Successfully!");
+      document.getElementById("timer").textContent = "OTP verified ";
+    } else {
+      alert("Invalid OTP. Please try again.");
+    }
+  }
+
+//registration login 
+ function registerUser() {
+    if (!isOTPVerified) return alert("Please verify OTP before registering.");
+
+    const name = document.getElementById("regName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("regPassword").value;
+    const userId = "USER_" + Math.floor(100000 + Math.random() * 900000);
+    const timestamp = new Date().toLocaleString();
+
+    const formData = new FormData();
+    formData.append("action", "register");
+    formData.append("user_id", userId);
+    formData.append("timestamp", timestamp);
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    fetch("https://script.google.com/macros/s/AKfycbyaTEFMVJ-sei6HgqqdYeVx5uR4oeluX1Wb_he7_CZaIs5Wei3hVTqAQEZXmiX8iSie/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+  if (data === "Email already registered") {
+    alert("This email is already registered. Please log in or use another email.");
+  } else if (data === "Success") {
+    alert("Registration successful!");
+    toggleForms('login');
+  } else {
+    alert("Unexpected response: " + data);
+  }
+})
+
+    .catch(err => {
+      console.error(err);
+      alert("Registration failed. Try again.");
+    });
+  }
+
+function loginUser() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  if (!email || !password) {
+    alert("Please enter email and password.");
+    return;
+  }
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyaTEFMVJ-sei6HgqqdYeVx5uR4oeluX1Wb_he7_CZaIs5Wei3hVTqAQEZXmiX8iSie/exec'; // Replace with your deployed Web App URL
+
+  const formData = new FormData();
+  formData.append("action", "login");
+  formData.append("email", email);
+  formData.append("password", password);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+    .then(response => response.text())
+    .then(result => {
+      if (result === "Success") {
+        window.location.href = "schemes.html"; // redirect on success
+      } else {
+        alert("Invalid credentials");
+      }
+    })
+    .catch(error => {
+      console.error("Login error:", error);
+      alert("Login failed. Try again.");
+    });
+}
+
+
+   function toggleForms(form) {
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    if (form === "register") {
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+    } else {
+      loginForm.style.display = "block";
+      registerForm.style.display = "none";
+    }
+  }
+
+
+  // image slide 
+    let currentIndex = 0;
+  const slider = document.getElementById('slider');
+  const totalSlides = slider.children.length;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  //loader
+
+  // Create overlay and loader using JS
+const overlay = document.createElement("div");
+overlay.id = "overlay";
+overlay.innerHTML = '<div class="loader"></div>';
+document.body.appendChild(overlay);
+
+// Show loader and block interactions
+function showLoader(duration = 2700) {
+  overlay.style.display = "flex";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, duration);
+}
+
+// Wrap original functions if needed
+const originalSendOTP = window.sendOTP;
+window.sendOTP = function() {
+  showLoader();
+  originalSendOTP?.();
+};
+
+const originalResendOTP = window.resendOTP;
+window.resendOTP = function() {
+  showLoader();
+  originalResendOTP?.();
+};
+
+const originalRegisterUser = window.registerUser;
+window.registerUser = function() {
+  showLoader();
+  originalRegisterUser?.();
+};
+
+const originalLoginUser = window.loginUser;
+window.loginUser = function() {
+  showLoader();
+  originalLoginUser?.();
+};
+
+</script>
+
+
+
+
+</body>
+</html>

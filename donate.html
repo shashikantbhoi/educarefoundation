@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Available Schemes - EduCare Foundation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .schemes-section {
+      background-color: #ffffff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .schemes-section h2 {
+      font-size: 1.8rem;
+      color: #1565c0;
+      margin-bottom: 30px;
+    }
+
+    .scheme-card {
+      background: #f1f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .scheme-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .expired {
+      background-color: #eeeeee;
+      color: #777;
+      cursor: default;
+      text-decoration: line-through;
+    }
+
+    .scheme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .scheme-title {
+      font-size: 1.2rem;
+      color: #1e88e5;
+      margin-bottom: 8px;
+    }
+
+    .scheme-desc {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .expired .scheme-title,
+    .expired .scheme-desc {
+      color: #999;
+    }
+.download-btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-btn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+.download-btn:active {
+  transform: scale(0.98);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EduCare Foundation</h1>
+    <p>Empowering students through education support</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="programs.html">Programs</a>
+    <a href="donate.html">Schemes</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+    <div class="schemes-section">
+      <h2>Available Schemes</h2>
+      <div class="scheme-grid">
+
+        <!-- Active Scheme -->
+        <a href="index.html" target="_blank" style="text-decoration: none;">
+          <div class="scheme-card">
+            <div class="scheme-title">Laptop Scheme 2025</div>
+            <div class="scheme-desc">Apply to receive a free laptop based on merit and need.</div>
+          </div>
+        </a>
+
+
+        <!-- Active Scheme -->
+      
+          <div class="scheme-card expired">
+            <div class="scheme-title">Student Tablet Yojana</div>
+            <div class="scheme-desc">Low-cost tablets for students enrolled in government schools.</div>
+          </div>
+        </a>
+
+        <!-- Expired Scheme -->
+        <div class="scheme-card expired">
+          <div class="scheme-title">EduCare Book Distribution 2024</div>
+          <div class="scheme-desc">Provided free books and stationery to over 2,000 students.</div>
+        </div>
+
+        <!-- Expired Scheme -->
+        <div class="scheme-card expired">
+          <div class="scheme-title">Winter Tech Grant 2023</div>
+          <div class="scheme-desc">Expired program for funding hardware tools for tech learners.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<div class="download-btn-container">
+  <button class="download-btn" onclick="downloadSchemePDF()">📄 Download Scheme Info (PDF)</button>
+</div>
+
+  <footer>
+         <a href="/terms.html" target="_blank">Terms & Conditions</a> |
+  <a href="/privacy.html" target="_blank">Privacy Policy</a>
+    <p>&copy; 2025 EduCare Foundation. All rights reserved.</p>
+  </footer>
+
+<script>
+function downloadSchemePDF() {
+  const pdfUrl = "Scheme_information.pdf"; // 🔁 Replace with your actual PDF link
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+  link.download = "Laptop-Scheme-Info.pdf";
+  link.target = "_blank";
+  link.click();
+}
+</script>
+
+</body>
+</html>
