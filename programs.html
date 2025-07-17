@@ -5,6 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Programs - EduCare Foundation</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+/* Sticky footer layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push footer to bottom */
+footer {
+  margin-top: auto;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Check Application Status styles */
+h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#email {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: none;
+  background-color: #0066cc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+#result {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/*new*/
+.marathi-marquee-bar {
+  all: initial;
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+  padding: 10px 20px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  border: 1px solid #ffeeba !important;
+  border-radius: 5px !important;
+  margin: 15px auto !important;
+  max-width: 90% !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1) !important;
+  display: block !important;
+}
+
+.marathi-marquee-bar marquee {
+  white-space: nowrap !important;
+}
+
+  </style>
 </head>
 <body>
 
@@ -16,45 +90,61 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
-    <a href="programs.html">Programs</a>
+    <a href="programs.html">Application Status</a>
     <a href="donate.html">Schemes</a>
     <a href="contact.html">Contact</a>
   </nav>
 <div class="marathi-marquee-bar">
   <marquee behavior="scroll" direction="left">
-    विद्यार्थ्यांसाठी लॅपटॉप योजनेसाठी नोंदणी सुरू आहे. अर्ज करण्यासाठी 'Schemes' बटणावर क्लिक करा.
-  ही योजना कोणत्याही शासकीय अथवा मान्यताप्राप्त संस्थेशी संबंधित नाही. ही एक खासगी उपक्रम असून, अर्जाचा ₹98 शुल्क प्रक्रिया शुल्क आहे, जो कोणत्याही परिस्थितीत परत केला जाणार नाही. अर्ज भरल्याने निवड निश्चित होत नाही. पात्रता, गुण आणि दस्तऐवजांच्या पडताळणीच्या आधारेच काही निवडक विद्यार्थ्यांची निवड केली जाईल. चुकीची किंवा बनावट माहिती दिल्यास अर्ज फेटाळला जाईल. तुमची वैयक्तिक माहिती गोपनीय ठेवली जाईल आणि केवळ योजनेसाठी वापरली जाईल.
+Registration for the Laptop Scheme for Students is now open.
+To apply, click on the 'Schemes' button.
+
+This scheme is not affiliated with any government or recognized institution. It is a private initiative, and the application processing fee is ₹59, which is non-refundable under any circumstances.
+
+Filling the application does not guarantee selection.
+Only a few students will be selected based on eligibility, academic performance, and document verification.
+
+If false or fake information is provided, the application will be rejected.
+Your personal information will be kept confidential and will be used only for the purpose of this scheme.
 
   </marquee>
 </div>
-  <div class="container">
-    <div class="hero-section">
-      <h1>Our Programs</h1>
-      <p>We run various initiatives to help students access the resources they need for quality education.</p>
-    </div>
+  <h2>Check Application Status</h2>
+    <input type="email" id="email" placeholder="Enter your registered email" required />
+    <button onclick="checkStatus()">Check Status</button>
+    <div id="result"></div>
 
-    <div class="cards-section">
-      <h2>Key Programs</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Digital Kit Distribution</h3>
-          <p>Laptops, tablets, and mobile devices for online learning access.</p>
-        </div>
-        <div class="card">
-          <h3>Book Bank</h3>
-          <p>Essential textbooks and guides provided to students free of cost.</p>
-        </div>
-        <div class="card">
-          <h3>Mentorship Network</h3>
-          <p>Connect students with professionals for career and personal guidance.</p>
-        </div>
-        <div class="card">
-          <h3>Skill Development</h3>
-          <p>Workshops and short courses to build skills for the digital economy.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+      async function checkStatus() {
+        const email = document.getElementById("email").value.trim();
+        const resultBox = document.getElementById("result");
+
+        if (!email) {
+          resultBox.innerText = "Please enter your email.";
+          return;
+        }
+
+        resultBox.innerText = "Checking...";
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwDp754ehXc5BdQbv3-M7aeSxYaWnz-D4YxY4C7bOUMJmVdGg_RKrlivVTgddCzc2n1/exec"; // ✅ Replace this
+
+        try {
+          const response = await fetch(scriptURL + `?email=${encodeURIComponent(email)}`, {
+            method: 'GET'
+          });
+
+          if (!response.ok) throw new Error("Network response was not ok");
+
+          const status = await response.text();
+          resultBox.innerText = status.startsWith("Email not found")
+            ? status
+            : "Status: " + status;
+        } catch (error) {
+          resultBox.innerText = "Error checking status. Try again.";
+          console.error("Fetch error:", error);
+        }
+      }
+    </script>
 
   <footer>
          <a href="/terms.html" target="_blank">Terms & Conditions</a> |

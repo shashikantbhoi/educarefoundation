@@ -62,15 +62,23 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
-    <a href="programs.html">Programs</a>
+    <a href="programs.html">Application status</a>
     <a href="donate.html">Schemes</a>
     <a href="contact.html">Contact</a>
   </nav>
 
 <div class="marathi-marquee-bar">
   <marquee behavior="scroll" direction="left">
-    विद्यार्थ्यांसाठी लॅपटॉप योजनेसाठी नोंदणी सुरू आहे. अर्ज करण्यासाठी 'Schemes' बटणावर क्लिक करा.
-  ही योजना कोणत्याही शासकीय अथवा मान्यताप्राप्त संस्थेशी संबंधित नाही. ही एक खासगी उपक्रम असून, अर्जाचा ₹98 शुल्क प्रक्रिया शुल्क आहे, जो कोणत्याही परिस्थितीत परत केला जाणार नाही. अर्ज भरल्याने निवड निश्चित होत नाही. पात्रता, गुण आणि दस्तऐवजांच्या पडताळणीच्या आधारेच काही निवडक विद्यार्थ्यांची निवड केली जाईल. चुकीची किंवा बनावट माहिती दिल्यास अर्ज फेटाळला जाईल. तुमची वैयक्तिक माहिती गोपनीय ठेवली जाईल आणि केवळ योजनेसाठी वापरली जाईल.
+  Registration for the Laptop Scheme for Students is now open.
+To apply, click on the 'Schemes' button.
+
+This scheme is not affiliated with any government or recognized institution. It is a private initiative, and the application processing fee is ₹59, which is non-refundable under any circumstances.
+
+Filling the application does not guarantee selection.
+Only a few students will be selected based on eligibility, academic performance, and document verification.
+
+If false or fake information is provided, the application will be rejected.
+Your personal information will be kept confidential and will be used only for the purpose of this scheme.
 
   </marquee>
 </div>
@@ -103,7 +111,7 @@
   </footer>
 
   <script>
-    emailjs.init("mqWw7b0_-3gUgkbut"); // Replace with your EmailJS public key
+    emailjs.init("TxuuoPXihjuMQXUBY"); // Replace with your EmailJS public key
     let generatedOTP = "";
 
     function sendOTP() {
@@ -116,7 +124,7 @@
         otp: generatedOTP
       };
 
-      emailjs.send("service_rlxxesd", "template_hhixzbv", templateParams) // Replace with actual service/template ID
+      emailjs.send("service_3hfvwri", "template_uqfagtb", templateParams) // Replace with actual service/template ID
         .then(() => {
           document.getElementById("otpSection").style.display = "block";
           document.getElementById("status").style.color = "green";
