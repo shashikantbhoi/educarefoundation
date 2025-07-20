@@ -128,7 +128,7 @@ Your personal information will be kept confidential and will be used only for th
   let timerInterval;
   const OTP_EXPIRY_SECONDS = 120;
 
-  emailjs.init({ publicKey: "TxuuoPXihjuMQXUBY" }); // ✅ Your public key
+  emailjs.init({ publicKey: "mqWw7b0_-3gUgkbut" }); // ✅ Your public key
 
   function sendOTP() {
     const email = document.getElementById("email").value.trim();
@@ -146,7 +146,7 @@ Your personal information will be kept confidential and will be used only for th
       otp: generatedOTP
     };
 
-    emailjs.send("service_3hfvwri", "template_uqfagtb", templateParams)
+    emailjs.send("service_rlxxesd", "template_hhixzbv", templateParams)
       .then(() => {
         alert("OTP sent successfully!");
         startTimer(OTP_EXPIRY_SECONDS);

@@ -111,7 +111,7 @@ Your personal information will be kept confidential and will be used only for th
   </footer>
 
   <script>
-    emailjs.init("TxuuoPXihjuMQXUBY"); // Replace with your EmailJS public key
+    emailjs.init("mqWw7b0_-3gUgkbut"); // Replace with your EmailJS public key
     let generatedOTP = "";
 
     function sendOTP() {
@@ -124,7 +124,7 @@ Your personal information will be kept confidential and will be used only for th
         otp: generatedOTP
       };
 
-      emailjs.send("service_3hfvwri", "template_uqfagtb", templateParams) // Replace with actual service/template ID
+      emailjs.send("service_rlxxesd", "template_hhixzbv", templateParams) // Replace with actual service/template ID
         .then(() => {
           document.getElementById("otpSection").style.display = "block";
           document.getElementById("status").style.color = "green";
